@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
-import "./Login.css"; // Ensure the CSS file is imported
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -16,20 +17,27 @@ const Login = () => {
         email,
         password,
       });
+
+      console.log("Login response:", response.data); // Log the response data for debugging
       localStorage.setItem("token", response.data.token);
-      setShowPopup(true);
-      setTimeout(() => {
-        setShowPopup(false);
-        navigate("/");
-      }, 3000); // Show popup for 3 seconds
+
+      // Redirect based on role
+      if (response.data.role === "Artisan") {
+        navigate("/artisans"); // Redirect to Artisan Dashboard
+      } else if (response.data.role === "Admin") {
+        navigate("/admin"); // Redirect to admin page
+      } else navigate("/products"); // Redirect to the products page
     } catch (error) {
-      console.error(error);
+      setError(
+        error.response?.data?.error || "Login failed. Please try again."
+      );
     }
   };
 
   return (
     <div className="login-container">
       <h1>Login</h1>
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
         <input
           type="email"
@@ -50,11 +58,6 @@ const Login = () => {
       <p>
         Don't have an account? <Link to="/register">Register here</Link>
       </p>
-      {showPopup && (
-        <div className="login-popup">
-          <p>Login successful! Redirecting to home...</p>
-        </div>
-      )}
     </div>
   );
 };

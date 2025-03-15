@@ -7,6 +7,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Admin from "./pages/Admin";
+import Artisans from "./pages/Artisans";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/products" element={<Products />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/artisans" element={<Artisans />} />
           </Routes>
         </main>
         <Footer />
