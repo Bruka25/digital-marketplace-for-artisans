@@ -88,3 +88,25 @@ body {
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
+
+.register-container {
+  /* existing styles */
+  position: relative;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: greenyellow;
+  color: #fff;
+  padding: 4rem 5rem; /* Increase padding for larger popup */
+  border-radius: 15px; /* Increase border radius */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  text-align: center;
+  font-size: 15rem; /* Increase font size */
+  width: 90%; /* Set a width to ensure it is responsive */
+  max-width: 600px; /* Set a max-width for larger screens */
+}

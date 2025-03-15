@@ -6,17 +6,22 @@ import "./Login.css"; // Ensure the CSS file is imported
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post("http://localhost:5000/auth/login", {
         email,
         password,
       });
       localStorage.setItem("token", response.data.token);
-      navigate("/");
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+        navigate("/");
+      }, 3000); // Show popup for 3 seconds
     } catch (error) {
       console.error(error);
     }
@@ -24,8 +29,6 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      {" "}
-      {/* Add the class name here */}
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <input
@@ -47,6 +50,11 @@ const Login = () => {
       <p>
         Don't have an account? <Link to="/register">Register here</Link>
       </p>
+      {showPopup && (
+        <div className="login-popup">
+          <p>Login successful! Redirecting to home...</p>
+        </div>
+      )}
     </div>
   );
 };

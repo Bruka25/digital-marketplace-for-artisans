@@ -8,19 +8,24 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("Customer");
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/register", {
+      const response = await axios.post("http://localhost:5000/auth/register", {
         username,
         email,
         password,
         role,
       });
       console.log("Registration successful:", response.data);
-      navigate("/login");
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+        navigate("/login");
+      }, 3000); // Show popup for 3 seconds
     } catch (error) {
       console.error(error);
     }
@@ -28,8 +33,6 @@ const Register = () => {
 
   return (
     <div className="register-container">
-      {" "}
-      {/* Add the class name here */}
       <h1>Register</h1>
       <form onSubmit={handleRegister}>
         <input
@@ -62,6 +65,11 @@ const Register = () => {
       <p>
         Already have an account? <Link to="/login">Login here</Link>
       </p>
+      {showPopup && (
+        <div className="popup">
+          <p>Registration successful! Redirecting to login...</p>
+        </div>
+      )}
     </div>
   );
 };
