@@ -1,3 +1,15 @@
+/* App Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes up the full viewport height */
+}
+
+.main-content {
+  padding-top: 70px; /* Account for the navbar height */
+  padding-bottom: 2rem; /* Add some padding at the bottom */
+}
+
 .App {
   text-align: center;
 }

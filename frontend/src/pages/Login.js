@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import "./Login.css"; // Ensure the CSS file is imported
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +23,9 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
+      {" "}
+      {/* Add the class name here */}
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <input

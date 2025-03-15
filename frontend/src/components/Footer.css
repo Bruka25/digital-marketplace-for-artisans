@@ -1,0 +1,71 @@
+/* Footer Styles */
+.footer {
+  background-color: #2c3e50; /* Dark background color */
+  color: #fff; /* White text color */
+  padding: 2rem 0; /* Add some padding */
+  text-align: center; /* Center the text */
+  width: 100%; /* Ensure the footer takes full width */
+  position: fixed; /* Ensure it stays at the bottom */
+  bottom: 0; /* Stick to the bottom */
+  left: 0; /* Align to the left */
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.footer-container {
+  max-width: 1200px; /* Limit the content width */
+  margin: 0 auto; /* Center the content */
+  padding: 0 1rem; /* Add some padding on the sides */
+}
+
+.footer-content h3 {
+  font-size: 1.5rem; /* Larger font size for the heading */
+  margin-bottom: 1rem; /* Add some space below the heading */
+}
+
+.footer-content p {
+  font-size: 1rem; /* Regular font size for the description */
+  line-height: 1.6; /* Improve readability with line height */
+  max-width: 600px; /* Limit the width of the description */
+  margin: 0 auto 1.5rem; /* Center the description and add space below */
+}
+
+.footer-bottom {
+  border-top: 1px solid #34495e; /* Add a border above the bottom text */
+  padding-top: 1rem; /* Add some padding above the bottom text */
+}
+
+.footer-bottom p {
+  font-size: 0.9rem; /* Smaller font size for the bottom text */
+  margin: 0; /* Remove default margin */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-content h3 {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+  }
+
+  .footer-content p {
+    font-size: 0.9rem; /* Smaller font size for mobile */
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem; /* Smaller font size for mobile */
+  }
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
