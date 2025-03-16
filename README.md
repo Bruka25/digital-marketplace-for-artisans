@@ -624,3 +624,17 @@ netlify deploy
 ```
 
 ---
+
+<B>Contribution<B>
+
+Fork the repository.
+
+Create a feature branch.
+
+Commit changes and push to GitHub.
+
+Open a pull request.
+
+<B>License<B>
+
+This project is licensed under the MIT License.
