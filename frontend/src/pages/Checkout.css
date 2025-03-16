@@ -1,0 +1,74 @@
+/* Container for the checkout page */
+.checkout-container {
+  max-width: 600px;
+  margin: 60px auto; /* Increased top/bottom margin */
+  padding: 30px; /* Increased padding */
+  background-color: #f9f9f9;
+  border-radius: 12px; /* Slightly increased border-radius */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* More subtle shadow */
+}
+
+/* Heading for the checkout page */
+.checkout-container h1 {
+  text-align: center;
+  flex-direction: initial;
+  margin-bottom: 30px; /* Increased margin */
+  font-size: 200px; /* Slightly increased font-size */
+  color: #333;
+  font-weight: 600; /* Slightly bolder font weight */
+}
+
+/* Form for the checkout page */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Increased gap */
+}
+
+/* Card element styling */
+.StripeElement {
+  padding: 18px; /* Slightly increased padding */
+  border: 1.5px solid #ccc; /* Slightly reduced border width */
+  border-radius: 10px; /* Slightly increased border radius */
+  background-color: #fff;
+  font-size: 17px; /* Reduced font size */
+  line-height: 1.5; /* Added line-height for better spacing */
+}
+
+/* Button styling */
+button {
+  padding: 18px; /* Slightly increased padding */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px; /* Slightly increased border radius */
+  cursor: pointer;
+  font-size: 17px; /* Reduced font size */
+  font-weight: 500; /* Slightly reduced font weight */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #ddd; /* Lighter disabled color */
+  cursor: not-allowed;
+}
+
+/* Error message styling */
+.card-error {
+  color: red;
+  font-size: 15px; /* Reduced font size */
+  text-align: center;
+  margin-top: 5px; /* Added margin for spacing */
+}
+
+/* Success message styling */
+.payment-success {
+  color: green;
+  font-size: 17px; /* Reduced font size */
+  text-align: center;
+  margin-top: 10px; /* Added margin for spacing */
+}

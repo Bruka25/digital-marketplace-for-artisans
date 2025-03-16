@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import "./Navbar.css";
 
 const Navbar = ({ cart = [] }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-
+  // const navigate = useNavigate();
   // Calculate total items in the cart
   const totalItems = cart.length;
 
   // Calculate total amount
-  const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+  const totalAmount = cart.reduce(
+    (sum, item) => sum + parseFloat(item.price),
+    0
+  );
 
+  // const handleLogout = () => {
+  //  localStorage.removeItem("token");
+  //  navigate("/login");
+  // };
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -46,7 +53,7 @@ const Navbar = ({ cart = [] }) => {
                   </li>
                 ))}
               </ul>
-              <p>Total: ${totalAmount.toFixed(2)}</p>
+              <p>Total: ${Number(totalAmount).toFixed(2)}</p>
               <Link to="/checkout" className="checkout-button">
                 Proceed to Checkout
               </Link>

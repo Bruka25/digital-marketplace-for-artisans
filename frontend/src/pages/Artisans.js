@@ -7,7 +7,8 @@ const Artisans = () => {
     name: "",
     description: "",
     price: "",
-    image: "",
+    image: null,
+    category: "",
   });
 
   const handleInputChange = (e) => {
@@ -15,19 +16,36 @@ const Artisans = () => {
     setNewProduct({ ...newProduct, [name]: value });
   };
 
+  const handleFileChange = (e) => {
+    setNewProduct({ ...newProduct, image: e.target.files[0] });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", newProduct.name);
+    formData.append("description", newProduct.description);
+    formData.append("price", newProduct.price);
+    formData.append("image", newProduct.image);
+    formData.append("category", newProduct.category);
+
     try {
       const response = await axios.post(
         "http://localhost:5000/products",
-        newProduct
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
+      console.log("Product created:", response.data);
       alert("Product added successfully!");
       setNewProduct({
         name: "",
         description: "",
         price: "",
-        image: "",
+        image: null,
         category: "",
       });
     } catch (error) {
@@ -63,18 +81,11 @@ const Artisans = () => {
           onChange={handleInputChange}
           required
         />
-        <input
-          type="text"
-          name="image"
-          placeholder="Image URL"
-          value={newProduct.image}
-          onChange={handleInputChange}
-          required
-        />
+        <input type="file" name="image" onChange={handleFileChange} required />
         <input
           type="text"
           name="category"
-          placeholder="category"
+          placeholder="Category"
           value={newProduct.category}
           onChange={handleInputChange}
           required

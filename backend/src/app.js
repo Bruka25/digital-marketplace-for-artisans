@@ -6,6 +6,7 @@ const productRoutes = require("./routes/products");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
 const userRoutes = require("./routes/users");
+const paymentRoutes = require("./routes/payments");
 
 dotenv.config();
 const app = express();
@@ -20,5 +21,6 @@ app.use("/products", productRoutes);
 app.use("/cart", cartRoutes);
 app.use("/orders", orderRoutes);
 app.use("/users", userRoutes);
+app.use("/payment", paymentRoutes);
 
 module.exports = app;
