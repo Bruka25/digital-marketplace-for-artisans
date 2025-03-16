@@ -289,3 +289,159 @@ docker run -p 5000:5000 --env-file .env backend
    - Ensure the correct response is returned.
 
 ---
+
+# Frontend - Artisan Marketplace
+
+## Overview
+
+This is the frontend of the Artisan Marketplace, built using React. It provides a platform for users to browse and purchase handmade products, while artisans can register and sell their products.
+
+## Features
+
+- User authentication (login & registration)
+- Browse and purchase products
+- Artisan dashboard for product management
+- Admin dashboard for user and product management
+
+## Setup
+
+### Prerequisites
+
+- Node.js (v16 recommended)
+- npm or yarn
+
+### Installation
+
+```sh
+# Clone the repository
+git clone https://github.com/Bruka25/digital-marketplace-for-artisans
+cd frontend
+
+# Install dependencies
+npm install
+```
+
+### Running the Application
+
+```sh
+npm start
+```
+
+This will start the development server at `http://localhost:3000/`.
+
+## Docker Setup
+
+To run the frontend using Docker:
+
+```sh
+docker build -t frontend .
+docker run -p 3000:3000 frontend
+```
+
+## Code Structure
+
+### App.js
+
+```jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Navbar from "./components/Navbar";
+import "./App.css";
+import Footer from "./components/Footer";
+import Products from "./pages/Products";
+import Admin from "./pages/Admin";
+import Artisans from "./pages/Artisans";
+
+function App() {
+  return (
+    <Router>
+      <div className="app-container">
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/artisans" element={<Artisans />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+## API Integration
+
+The frontend interacts with the backend through the following API endpoints:
+
+- `POST /auth/register` - User registration
+- `POST /auth/login` - User login
+- `GET /products` - Fetch available products
+- `POST /products` - Artisan adds a new product
+- `DELETE /products/:id` - Admin deletes a product
+- `GET /users` - Admin fetches all users
+- `DELETE /users/:id` - Admin deletes a user
+
+## Testing API with Postman
+
+Use the following sample requests to test API endpoints:
+
+### User Registration
+
+```json
+{
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "Customer"
+}
+```
+
+### User Login
+
+```json
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+```
+
+### Add a Product (Artisan)
+
+```json
+{
+  "name": "Handmade Mug",
+  "description": "A beautiful ceramic mug.",
+  "price": 25,
+  "image": "http://example.com/mug.jpg",
+  "category": "Ceramics"
+}
+```
+
+## Deployment
+
+To deploy the frontend, you can use services like Vercel, Netlify, or AWS S3.
+
+### Deploying to Vercel
+
+```sh
+npm install -g vercel
+vercel
+```
+
+### Deploying to Netlify
+
+```sh
+npm install -g netlify-cli
+netlify deploy
+```
+
+---
