@@ -23,7 +23,13 @@ const Artisans = () => {
         newProduct
       );
       alert("Product added successfully!");
-      setNewProduct({ name: "", description: "", price: "", image: "" });
+      setNewProduct({
+        name: "",
+        description: "",
+        price: "",
+        image: "",
+        category: "",
+      });
     } catch (error) {
       console.error(error);
     }
@@ -62,6 +68,14 @@ const Artisans = () => {
           name="image"
           placeholder="Image URL"
           value={newProduct.image}
+          onChange={handleInputChange}
+          required
+        />
+        <input
+          type="text"
+          name="category"
+          placeholder="category"
+          value={newProduct.category}
           onChange={handleInputChange}
           required
         />
