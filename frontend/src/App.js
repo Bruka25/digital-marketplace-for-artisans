@@ -20,7 +20,7 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <Navbar cart={cart} />
+        <Navbar cart={cart} setCart={setCart} />
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />

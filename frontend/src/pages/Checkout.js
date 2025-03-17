@@ -72,7 +72,7 @@ const CheckoutForm = ({ cart }) => {
 const Checkout = ({ cart }) => {
   return (
     <div className="checkout-container">
-      <h1>Checkout</h1>
+      <h1>pay with stripe</h1>
       <Elements stripe={stripePromise}>
         <CheckoutForm cart={cart} />
       </Elements>

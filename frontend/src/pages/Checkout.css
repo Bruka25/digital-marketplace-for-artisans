@@ -1,51 +1,66 @@
+/* Checkout.css */
+
 /* Container for the checkout page */
 .checkout-container {
   max-width: 600px;
-  margin: 60px auto; /* Increased top/bottom margin */
-  padding: 30px; /* Increased padding */
+  margin: 30px auto;
+  padding: 30px;
   background-color: #f9f9f9;
-  border-radius: 12px; /* Slightly increased border-radius */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* More subtle shadow */
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Heading for the checkout page */
 .checkout-container h1 {
   text-align: center;
-  flex-direction: initial;
-  margin-bottom: 30px; /* Increased margin */
-  font-size: 200px; /* Slightly increased font-size */
+  margin-bottom: 30px;
+  font-size: 120px;
   color: #333;
-  font-weight: 600; /* Slightly bolder font weight */
+  font-weight: 600;
 }
 
 /* Form for the checkout page */
 form {
   display: flex;
   flex-direction: column;
-  gap: 25px; /* Increased gap */
+  gap: 20px; /* Adjust gap as needed */
+}
+
+/* Label and Stripe element wrapper */
+form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px; /* Optional: Add space between rows */
+}
+
+/* Label styling */
+label {
+  font-weight: 600;
+  margin-bottom: 5px; /* Space between label and input */
+  color: #555;
 }
 
 /* Card element styling */
 .StripeElement {
-  padding: 18px; /* Slightly increased padding */
-  border: 1.5px solid #ccc; /* Slightly reduced border width */
-  border-radius: 10px; /* Slightly increased border radius */
+  padding: 15px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
   background-color: #fff;
-  font-size: 17px; /* Reduced font size */
-  line-height: 1.5; /* Added line-height for better spacing */
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 /* Button styling */
 button {
-  padding: 18px; /* Slightly increased padding */
+  padding: 15px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 10px; /* Slightly increased border radius */
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 17px; /* Reduced font size */
-  font-weight: 500; /* Slightly reduced font weight */
-  transition: background-color 0.3s ease; /* Smooth transition */
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -53,22 +68,22 @@ button:hover {
 }
 
 button:disabled {
-  background-color: #ddd; /* Lighter disabled color */
+  background-color: #ddd;
   cursor: not-allowed;
 }
 
 /* Error message styling */
 .card-error {
   color: red;
-  font-size: 15px; /* Reduced font size */
+  font-size: 14px;
   text-align: center;
-  margin-top: 5px; /* Added margin for spacing */
+  margin-top: 5px;
 }
 
 /* Success message styling */
 .payment-success {
   color: green;
-  font-size: 17px; /* Reduced font size */
+  font-size: 16px;
   text-align: center;
-  margin-top: 10px; /* Added margin for spacing */
+  margin-top: 10px;
 }
